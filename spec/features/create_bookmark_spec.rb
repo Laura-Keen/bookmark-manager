@@ -5,6 +5,7 @@ feature 'Add bookmark' do
     fill_in('url', :with => 'https://github.com/')
     fill_in('title', :with => 'Github')
     click_button "Submit bookmark"
-    expect(page).to have_link('Github', href: 'https://github.com/')
+    save_and_open_page
+    expect(page).to have_content('Github, https://github.com/')
   end
 end

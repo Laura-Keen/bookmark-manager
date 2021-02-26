@@ -8,8 +8,8 @@ feature 'Viewing Bookmarks' do
 
     visit('/bookmarks')
 
-    expect(page).to have_link('Makers Academy', href: 'https://www.makersacademy.com')
-    expect(page).to have_link('Destroy All Software', href: 'https://www.destroyallsoftware.com')
-    expect(page).to have_link('Google', href: 'https://www.google.com')
+    expect(page).to have_content('Makers Academy, https://www.makersacademy.com')
+    expect(page).to have_content('Destroy All Software, https://www.destroyallsoftware.com')
+    expect(page).to have_content('Google, https://www.google.com')
   end
 end
