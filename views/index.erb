@@ -1,9 +1,14 @@
 Bookmark Manager
 
-<form action='/bookmarks' type='get'>
-  <button type='submit'>Bookmarks</button>
+<form action='/bookmarks' method='post'>
+  <label for="url">Type URL here</label>
+  <input type="text" name="url">
+  <label for="title">Type page title here</label>
+  <input type="text" name="title">
+  <button type='submit'>Submit bookmark</button>
 </form>
 
-<a href='/bookmarks/new'>
-  <button type='button'>Add new bookmark</button>
-</a>  
+
+  <% @bookmarks.each do |bookmark| %>
+      <a href="<%= bookmark.url %>"><%= bookmark.title %></a>
+  <% end %>

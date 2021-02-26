@@ -1,3 +1,4 @@
+require 'pg'
 feature 'Viewing Bookmarks' do
   scenario 'User viewing the bookmarks' do
     connection = PG.connect(dbname: 'bookmark_manager_test')
@@ -6,10 +7,9 @@ feature 'Viewing Bookmarks' do
     Bookmarks.create(url: 'https://www.destroyallsoftware.com', title: 'Destroy All Software')
     Bookmarks.create(url: 'https://www.google.com', title: 'Google')
 
-    visit('/bookmarks')
-
-    expect(page).to have_content('Makers Academy, https://www.makersacademy.com')
-    expect(page).to have_content('Destroy All Software, https://www.destroyallsoftware.com')
-    expect(page).to have_content('Google, https://www.google.com')
+    visit('/')
+    expect(page).to have_link('Makers Academy', href:'https://www.makersacademy.com')
+    expect(page).to have_link('Destroy All Software', href: 'https://www.destroyallsoftware.com')
+    expect(page).to have_link('Google', href: 'https://www.google.com')
   end
 end
