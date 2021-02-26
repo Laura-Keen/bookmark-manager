@@ -8,7 +8,16 @@ Bookmark Manager
   <button type='submit'>Submit bookmark</button>
 </form>
 
+<form action='/delete_bookmark' method='post'>
+  <label for="title">Type page title to delete here</label>
+  <input type="text" name="del_title">
+  <button type='submit'>Delete bookmark</button>
+</form>
 
+<ul>
   <% @bookmarks.each do |bookmark| %>
-      <a href="<%= bookmark.url %>"><%= bookmark.title %></a>
+    <li>
+    <a href="<%= bookmark.url %>"><%= bookmark.title %></a>
+    </li>
   <% end %>
+</ul>
